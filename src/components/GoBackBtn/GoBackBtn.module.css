@@ -11,5 +11,5 @@
 
 .link:hover,
 .link:focus {
-  background-color: var(--color-imageBackground);
+  background-color: red;
 }

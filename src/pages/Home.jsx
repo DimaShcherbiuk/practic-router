@@ -1,11 +1,17 @@
-import { Container, Heading, Section } from 'components';
+import { Container, CountryList, Heading, Loader, Section } from "components";
+import { useFetchCountries } from "hooks";
 
-export const Home = () => {
+const Home = () => {
+  const { countries, isLoading, error } = useFetchCountries();
   return (
     <Section>
       <Container>
-        <Heading title="Home" bottom />
+        {isLoading && <Loader />}
+        {error && <Heading title="Something went wronge..." bottom />}
+        {countries.length > 0 && <CountryList countries={countries} />}
       </Container>
     </Section>
   );
 };
+
+export default Home;
